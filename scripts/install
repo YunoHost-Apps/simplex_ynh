@@ -77,7 +77,7 @@ chmod +x $final_path/smp-server
 
 pushd "$final_path"
 	public_ip4="$(curl -s ip.yunohost.org)" || true
-	yes | ./smp-server init -l --ip $public_ip4
+	./smp-server init --no-password --ip $public_ip4 -y
 popd
 
 chown -R $app:$app "/etc/opt/simplex"
