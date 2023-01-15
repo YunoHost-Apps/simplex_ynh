@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/ericgaspar/simplex_ynh/releases/download/v4.4.3/smp-server
+SOURCE_SUM=83bb242283e08cc37eb3870d2c0ef1b4d96725ee56e021c7bdaad919dc2bb336
+SOURCE_SUM_PRG=sha256sum
+SOURCE_IN_SUBDIR=false
+SOURCE_FILENAME=smp-server
+SOURCE_EXTRACT=false
