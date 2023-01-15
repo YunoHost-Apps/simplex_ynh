@@ -15,28 +15,13 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Some long and extensive description of what the app is and does, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-### Features
-
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco ;
-- Laboris nisi ut aliquip ex ea commodo consequat ;
-- Duis aute irure dolor in reprehenderit in voluptate ;
-- Velit esse cillum dolore eu fugiat nulla pariatur ;
-- Excepteur sint occaecat cupidatat non proident, sunt in culpa."
-
+SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
 **Version incluse :** 4.1.0~ynh1
 
 ## Captures d'écran
 
 ![Capture d'écran de SimpleX](./doc/screenshots/example.jpg)
-
-## Avertissements / informations importantes
-
-https://yaky.dev/2022-07-16-smp-server/
-
-https://github.com/simplex-chat/simplexmq#using-smp-server-and-smp-agent
 
 ## Documentations et ressources
 
