@@ -1,0 +1,1 @@
+SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
