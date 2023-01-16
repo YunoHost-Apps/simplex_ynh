@@ -5,29 +5,43 @@ It shall NOT be edited by hand.
 
 # SimpleX pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)  
 [![Installer SimpleX avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer SimpleX rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer SimpleX rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
 **Version incluse :** 4.1.0~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de SimpleX](./doc/screenshots/example.jpg)
+![Capture d’écran de SimpleX](./doc/screenshots/conversation.png)
+
+## Avertissements / informations importantes
+
+### SMP server address
+
+You can find the fingerprint in the SimpleX Chat service in the webadmin
+
+Your SMP server address should look like this:
+
+```
+smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
+```
+
+For mobile clients, open Settings, find an option "SMP servers", toggle "Configure SMP Servers" to on, then enter the SMP Servers Address for all servers you want the client to use.
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://simplex.chat/>
-* Documentation officielle de l'admin : <https://yunohost.org/packaging_apps>
-* Dépôt de code officiel de l'app : <https://github.com/simplex-chat/simplex-chat>
+* Site officiel de l’app : <https://simplex.chat/>
+* Documentation officielle de l’admin : <https://yunohost.org/packaging_apps>
+* Dépôt de code officiel de l’app : <https://github.com/simplex-chat/simplex-chat>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_simplex>
 * Signaler un bug : <https://github.com/YunoHost-Apps/simplex_ynh/issues>
 
@@ -43,4 +57,4 @@ ou
 sudo yunohost app upgrade simplex -u https://github.com/YunoHost-Apps/simplex_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
