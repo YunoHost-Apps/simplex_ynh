@@ -37,6 +37,13 @@ smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
 
 For mobile clients, open Settings, find an option "SMP servers", toggle "Configure SMP Servers" to on, then enter the SMP Servers Address for all servers you want the client to use.
 
+[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/apple_store.svg" alt="iOS app" height="42">](https://apps.apple.com/us/app/simplex-chat/id1605771084)
+&nbsp;
+[![Android app](https://github.com/simplex-chat/.github/blob/master/profile/images/google_play.svg)](https://play.google.com/store/apps/details?id=chat.simplex.app)
+&nbsp;
+[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/f_droid.svg" alt="F-Droid" height="41">](https://app.simplex.chat)
+&nbsp;
+
 ## Documentation and resources
 
 * Official app website: <https://simplex.chat/>

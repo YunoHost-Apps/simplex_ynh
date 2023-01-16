@@ -1,14 +1,14 @@
-### SMP server address
+### Adresse du serveur SMP
 
-You can find the fingerprint in the SimpleX Chat service in the webadmin
+Vous pouvez trouver l'empreinte digitale dans le service SimpleX Chat dans la webadmin.
 
-Your SMP server address should look like this:
+L'adresse de votre serveur SMP devrait ressembler à ceci :
 
 ```
 smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
 ```
 
-For mobile clients, open Settings, find an option "SMP servers", toggle "Configure SMP Servers" to on, then enter the SMP Servers Address for all servers you want the client to use.
+Pour les clients mobiles, ouvrez Paramètres, recherchez une option "Serveurs SMP", activez "Configurer les serveurs SMP", puis entrez l'adresse des serveurs SMP pour tous les serveurs que vous souhaitez que le client utilise.
 
 [<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/apple_store.svg" alt="iOS app" height="42">](https://apps.apple.com/us/app/simplex-chat/id1605771084)
 &nbsp;
