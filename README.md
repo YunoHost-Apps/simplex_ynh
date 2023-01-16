@@ -23,6 +23,18 @@ SimpleX - the first messaging platform operating without user identifiers of any
 
 ![Screenshot of SimpleX](./doc/screenshots/conversation.png)
 
+## Disclaimers / important information
+
+### SMP server address
+
+You can find the fingerprint in the SimpleX Chat service in the webadmin
+
+Your SMP server address should look like this:
+
+```
+smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
+```
+
 ## Documentation and resources
 
 * Official app website: <https://simplex.chat/>
