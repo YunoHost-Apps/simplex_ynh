@@ -23,6 +23,18 @@ SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'uti
 
 ![Capture d’écran de SimpleX](./doc/screenshots/conversation.png)
 
+## Avertissements / informations importantes
+
+### SMP server address
+
+You can find the fingerprint in the SimpleX Chat service in the webadmin
+
+Your SMP server address should look like this:
+
+```
+smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
+```
+
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://simplex.chat/>
