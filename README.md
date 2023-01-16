@@ -21,7 +21,7 @@ SimpleX - the first messaging platform operating without user identifiers of any
 
 ## Screenshots
 
-![Screenshot of SimpleX](./doc/screenshots/example.jpg)
+![Screenshot of SimpleX](./doc/screenshots/conversation.png)
 
 ## Documentation and resources
 
