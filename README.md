@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # SimpleX for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Working status](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Working status](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
 [![Install SimpleX with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -47,7 +47,6 @@ For mobile clients, open Settings, find an option "SMP servers", toggle "Configu
 ## Documentation and resources
 
 * Official app website: <https://simplex.chat/>
-* Official admin documentation: <https://yunohost.org/packaging_apps>
 * Upstream app code repository: <https://github.com/simplex-chat/simplex-chat>
 * YunoHost documentation for this app: <https://yunohost.org/app_simplex>
 * Report a bug: <https://github.com/YunoHost-Apps/simplex_ynh/issues>
