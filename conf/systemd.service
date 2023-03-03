@@ -1,5 +1,5 @@
 [Unit]
-Description=SimpleX: messaging Protocol Server
+Description=SimpleX: Messaging Protocol Server
 After=network.target
 
 [Service]
