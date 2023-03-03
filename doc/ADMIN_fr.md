@@ -1,8 +1,6 @@
 ### Adresse du serveur SMP
 
-Vous pouvez trouver l'empreinte digitale dans le service SimpleX Chat dans la webadmin.
-
-L'adresse de votre serveur SMP devrait ressembler à ceci :
+L'adresse de votre serveur SMP est :
 
 ```
 smp://__FINGERPRINT__=@__PUBLIC_IP4__:__PORT__

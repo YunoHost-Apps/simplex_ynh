@@ -1,8 +1,6 @@
 ### SMP server address
 
-You can find the fingerprint in the SimpleX Chat service in the webadmin
-
-Your SMP server address should look like this:
+Your SMP server address:
 
 ```
 smp://__FINGERPRINT__=@__PUBLIC_IP4__:__PORT__
