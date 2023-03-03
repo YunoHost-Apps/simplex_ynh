@@ -15,7 +15,7 @@ website = "https://simplex.chat/"
 code = "https://github.com/simplex-chat/simplex-chat"
 
 [integration]
-yunohost = ">= 11.1.12"
+yunohost = ">= 11.1.13"
 architectures = ["amd64"]
 multi_instance = false
 ldap = "not_relevant"
