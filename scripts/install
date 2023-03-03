@@ -31,6 +31,7 @@ pushd "$install_dir"
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
+ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
 
 chown -R $app:$app "/etc/opt/simplex"
