@@ -3,7 +3,7 @@
 L'adresse de votre serveur SMP est :
 
 ```
-smp://__FINGERPRINT__=@__PUBLIC_IP4__:__PORT__
+smp://__FINGERPRINT__@__PUBLIC_IP4__:__PORT__
 ```
 
 Pour les clients mobiles, ouvrez Paramètres, recherchez une option "Serveurs SMP", activez "Configurer les serveurs SMP", puis entrez l'adresse des serveurs SMP pour tous les serveurs que vous souhaitez que le client utilise.
