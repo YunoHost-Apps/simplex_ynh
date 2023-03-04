@@ -20,11 +20,8 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
-# If public_ip4 doesn't exist, create it
-if [ -z "$public_ip4" ]; then
-	public_ip4="$(curl -s ip.yunohost.org)" || true
-	ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
-fi
+public_ip4="$(curl -s ip.yunohost.org)" || true
+ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
 # If fingerprint doesn't exist, create it
 if [ -z "$fingerprint" ]; then
