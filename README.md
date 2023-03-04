@@ -6,6 +6,7 @@ It shall NOT be edited by hand.
 # SimpleX for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Working status](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+
 [![Install SimpleX with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -22,27 +23,6 @@ SimpleX - the first messaging platform operating without user identifiers of any
 ## Screenshots
 
 ![Screenshot of SimpleX](./doc/screenshots/conversation.png)
-
-## Disclaimers / important information
-
-### SMP server address
-
-You can find the fingerprint in the SimpleX Chat service in the webadmin
-
-Your SMP server address should look like this:
-
-```
-smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
-```
-
-For mobile clients, open Settings, find an option "SMP servers", toggle "Configure SMP Servers" to on, then enter the SMP Servers Address for all servers you want the client to use.
-
-[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/apple_store.svg" alt="iOS app" height="42">](https://apps.apple.com/us/app/simplex-chat/id1605771084)
-&nbsp;
-[![Android app](https://github.com/simplex-chat/.github/blob/master/profile/images/google_play.svg)](https://play.google.com/store/apps/details?id=chat.simplex.app)
-&nbsp;
-[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/f_droid.svg" alt="F-Droid" height="41">](https://app.simplex.chat)
-&nbsp;
 
 ## Documentation and resources
 

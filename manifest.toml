@@ -1,0 +1,41 @@
+packaging_format = 2
+
+id = "simplex"
+name = "SimpleX"
+description.en = "Messaging platform operating without user identifiers"
+description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
+
+version = "4.1.0~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "AGPL-3.0"
+website = "https://simplex.chat/"
+code = "https://github.com/simplex-chat/simplex-chat"
+cpe = "cpe:2.3:a:simplex:simplex_chat"
+fund = "https://opencollective.com/simplex-chat"
+
+[integration]
+yunohost = ">= 11.1.13"
+architectures = ["amd64"]
+multi_instance = false
+ldap = "not_relevant"
+sso = "not_relevant"
+disk = "50M"
+ram.build = "150M"
+ram.runtime = "50M"
+
+[install]
+
+[resources]
+    [resources.ports]
+    main.default = 5223
+    main.exposed = "TCP"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+    dir = "/usr/local/bin/__APP__"
+
+    [resources.permissions]
