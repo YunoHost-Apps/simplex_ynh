@@ -12,6 +12,7 @@ maintainers = ["eric_G"]
 [upstream]
 license = "AGPL-3.0"
 website = "https://simplex.chat/"
+admindoc = "https://github.com/simplex-chat/simplex-chat/blob/stable/docs/SERVER.md"
 code = "https://github.com/simplex-chat/simplex-chat"
 cpe = "cpe:2.3:a:simplex:simplex_chat"
 fund = "https://opencollective.com/simplex-chat"
