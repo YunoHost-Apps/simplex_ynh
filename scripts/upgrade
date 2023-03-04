@@ -20,11 +20,11 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
-public_ip4="$(curl -s ip.yunohost.org)" || true
-ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
+#public_ip4="$(curl -s ip.yunohost.org)" || true
+#ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
-fingerprint=$(cat /etc/opt/simplex/fingerprint)
-ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
+#fingerprint=$(cat /etc/opt/simplex/fingerprint)
+#ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
 
 #=================================================
 # STANDARD UPGRADE STEPS
