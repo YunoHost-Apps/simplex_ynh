@@ -33,11 +33,8 @@ ynh_remove_systemd_config
 #=================================================
 # REMOVE APP MAIN DIR
 #=================================================
-#REMOVEME? ynh_script_progression --message="Removing app main directory..." --weight=1
 
 # Remove the app directory securely
-ynh_secure_remove --file="/usr/local/bin/simplex"
-
 ynh_secure_remove --file="/etc/opt/simplex"
 
 #=================================================
