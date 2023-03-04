@@ -55,6 +55,7 @@ fi
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
+chmod +x $install_dir/smp-server
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
