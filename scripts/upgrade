@@ -15,6 +15,12 @@ source /usr/share/yunohost/helpers
 
 upgrade_type=$(ynh_check_app_version_changed)
 
+
+public_ip4="$(curl -s ip.yunohost.org)" || true
+fingerprint=$(cat /etc/opt/simplex/fingerprint)
+ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
+ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
+
 #=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
