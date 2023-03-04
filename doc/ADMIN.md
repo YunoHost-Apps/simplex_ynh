@@ -1,5 +1,3 @@
-### SMP server address
-
 Your SMP server address:
 
 ```

@@ -1,5 +1,3 @@
-### Adresse du serveur SMP
-
 L'adresse de votre serveur SMP est :
 
 ```
