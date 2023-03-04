@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "4.1.0~ynh1"
+version = "4.4.1~ynh1"
 
 maintainers = ["eric_G"]
 
