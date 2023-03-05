@@ -16,6 +16,10 @@ source /usr/share/yunohost/helpers
 upgrade_type=$(ynh_check_app_version_changed)
 
 
+#=================================================
+# STORE SETTINGS
+#=================================================
+
 public_ip4="$(curl -s ip.yunohost.org)" || true
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
 ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
@@ -49,7 +53,7 @@ chmod +x $install_dir/smp-server
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
+ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=4
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
