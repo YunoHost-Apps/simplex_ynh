@@ -15,7 +15,6 @@ source /usr/share/yunohost/helpers
 
 upgrade_type=$(ynh_check_app_version_changed)
 
-
 #=================================================
 # STORE SETTINGS
 #=================================================
