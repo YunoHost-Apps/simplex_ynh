@@ -6,6 +6,7 @@ It shall NOT be edited by hand.
 # SimpleX pour YunoHost
 
 [![Niveau d’intégration](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+
 [![Installer SimpleX avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
 *[Read this readme in english.](./README.md)*
@@ -17,36 +18,16 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
-**Version incluse :** 4.1.0~ynh1
+**Version incluse :** 4.4.1~ynh1
 
 ## Captures d’écran
 
 ![Capture d’écran de SimpleX](./doc/screenshots/conversation.png)
 
-## Avertissements / informations importantes
-
-### Adresse du serveur SMP
-
-Vous pouvez trouver l'empreinte digitale dans le service SimpleX Chat dans la webadmin.
-
-L'adresse de votre serveur SMP devrait ressembler à ceci :
-
-```
-smp://YOUR_FINGERPRINT=@YOUR_IPV4_ADDRESS:5223
-```
-
-Pour les clients mobiles, ouvrez Paramètres, recherchez une option "Serveurs SMP", activez "Configurer les serveurs SMP", puis entrez l'adresse des serveurs SMP pour tous les serveurs que vous souhaitez que le client utilise.
-
-[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/apple_store.svg" alt="iOS app" height="42">](https://apps.apple.com/us/app/simplex-chat/id1605771084)
-&nbsp;
-[![Android app](https://github.com/simplex-chat/.github/blob/master/profile/images/google_play.svg)](https://play.google.com/store/apps/details?id=chat.simplex.app)
-&nbsp;
-[<img src="https://github.com/simplex-chat/.github/blob/master/profile/images/f_droid.svg" alt="F-Droid" height="41">](https://app.simplex.chat)
-&nbsp;
-
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://simplex.chat/>
+* Documentation officielle de l’admin : <https://github.com/simplex-chat/simplex-chat/blob/stable/docs/SERVER.md>
 * Dépôt de code officiel de l’app : <https://github.com/simplex-chat/simplex-chat>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_simplex>
 * Signaler un bug : <https://github.com/YunoHost-Apps/simplex_ynh/issues>

@@ -1,13 +1,13 @@
 [Unit]
-Description=SimpleX: messaging Protocol Server
+Description=SimpleX: Messaging Protocol Server
 After=network.target
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/smp-server start
+WorkingDirectory=__INSTALL_DIR__/
+ExecStart=__INSTALL_DIR__/smp-server start
 Restart=always
 RestartSec=3
 KillSignal=SIGINT
