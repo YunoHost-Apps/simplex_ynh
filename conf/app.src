@@ -1,6 +1,0 @@
-SOURCE_URL=https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v4.4.1/smp-server
-SOURCE_SUM=057b773520d87d0f71958665ff3c099ec7214165fa82551b0c2251ae9165ce03
-SOURCE_SUM_PRG=sha256sum
-SOURCE_IN_SUBDIR=false
-SOURCE_FILENAME=smp-server
-SOURCE_EXTRACT=false
