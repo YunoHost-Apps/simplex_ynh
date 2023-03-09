@@ -18,7 +18,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**Shipped version:** 4.4.1~ynh2
+**Shipped version:** 4.4.1~ynh3
 
 ## Screenshots
 
