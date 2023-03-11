@@ -18,7 +18,7 @@ cpe = "cpe:2.3:a:simplex:simplex_chat"
 fund = "https://opencollective.com/simplex-chat"
 
 [integration]
-yunohost = ">= 11.1.14"
+yunohost = ">= 11.1.15"
 architectures = ["amd64"]
 multi_instance = false
 ldap = "not_relevant"
@@ -30,6 +30,15 @@ ram.runtime = "50M"
 [install]
 
 [resources]
+
+ [resources.sources]
+    [resources.sources.main]
+    url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v4.4.1/smp-server"
+    sha256 = "057b773520d87d0f71958665ff3c099ec7214165fa82551b0c2251ae9165ce03"
+    in_subdir = false
+    extract   = false
+    rename    = "smp-server"
+
     [resources.ports]
     main.default = 5223
     main.exposed = "TCP"
@@ -40,11 +49,3 @@ ram.runtime = "50M"
     dir = "/usr/local/bin/__APP__"
 
     [resources.permissions]
-
- [resources.sources]
-    [resources.sources.main]
-    url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v4.4.1/smp-server"
-    sha256 = "057b773520d87d0f71958665ff3c099ec7214165fa82551b0c2251ae9165ce03"
-    in_subdir = false
-    extract   = false
-    rename    = "smp-server"
