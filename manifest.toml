@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "4.4.1~ynh3"
+version = "5.0.0~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -33,8 +33,8 @@ ram.runtime = "50M"
 
  [resources.sources]
     [resources.sources.main]
-    url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v4.4.1/smp-server"
-    sha256 = "057b773520d87d0f71958665ff3c099ec7214165fa82551b0c2251ae9165ce03"
+    url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0/smp-server"
+    sha256 = "fd5c88355496ae09aad7dba582be99307813a18550d870b742c12b8a17f41b71"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
