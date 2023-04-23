@@ -46,6 +46,6 @@ ram.runtime = "50M"
     [resources.system_user]
 
     [resources.install_dir]
-    dir = "/usr/local/bin/__APP__"
+    dir = "/usr/local/bin/simplex"
 
     [resources.permissions]
