@@ -18,7 +18,7 @@ cpe = "cpe:2.3:a:simplex:simplex_chat"
 fund = "https://opencollective.com/simplex-chat"
 
 [integration]
-yunohost = ">= 11.1.17"
+yunohost = ">= 11.1.18"
 architectures = ["amd64"]
 multi_instance = false
 ldap = "not_relevant"
