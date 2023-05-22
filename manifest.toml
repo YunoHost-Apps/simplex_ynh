@@ -33,8 +33,10 @@ ram.runtime = "50M"
 
  [resources.sources]
     [resources.sources.main]
-    url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0/smp-server"
-    sha256 = "fd5c88355496ae09aad7dba582be99307813a18550d870b742c12b8a17f41b71"
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/smp-server_amd64"
+    amd64.sha256 = "fd5c88355496ae09aad7dba582be99307813a18550d870b742c12b8a17f41b71"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/smp-server_arm64"
+    arm64.sha256 = "b59f26e4ad1a5a8b1e0e6d564c01a713d26c4b01dd6f1e27dea8961df2468002"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
