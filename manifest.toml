@@ -19,7 +19,7 @@ fund = "https://opencollective.com/simplex-chat"
 
 [integration]
 yunohost = ">= 11.1.19"
-architectures = ["amd64"]
+architectures = ["amd64", "arm64"]
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
