@@ -59,4 +59,6 @@ ram.runtime = "50M"
     [resources.install_dir]
     dir = "/usr/local/bin/__APP__"
 
+    [resources.data_dir]
+
     [resources.permissions]
