@@ -8,6 +8,7 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__INSTALL_DIR__/smp-server start
+ExecStopPost=/usr/bin/env sh -c '[ -e "/var/opt/simplex/file-server-store.log" ] && cp "/var/opt/simplex/file-server-store.log" "/var/opt/simplex/file-server-store.log.$(date +'%FT%T')"'
 Restart=always
 RestartSec=3
 KillSignal=SIGINT
