@@ -35,6 +35,7 @@ ynh_remove_systemd_config
 
 # Remove the app directory securely
 ynh_secure_remove --file="/etc/opt/simplex"
+ynh_secure_remove --file="/etc/opt/simplex-xftp"
 
 #=================================================
 # END OF SCRIPT
