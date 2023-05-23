@@ -1,4 +1,4 @@
-L'adresse de votre serveur SMP est :
+Les adresses de votre serveur SMP est :
 
 ```
 smp://__FINGERPRINT__@__PUBLIC_IP4__:__PORT__
