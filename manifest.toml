@@ -53,6 +53,8 @@ ram.runtime = "50M"
     [resources.ports]
     main.default = 5223
     main.exposed = "TCP"
+    xftp.default = 5224
+    xftp.exposed = "TCP"
 
     [resources.system_user]
 
