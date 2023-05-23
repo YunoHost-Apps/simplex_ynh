@@ -1,5 +1,6 @@
 [Unit]
 Description=XFTP server systemd service
+Documentation=https://simplex.chat/docs/xftp-server.html
 After=network.target
 
 [Service]
