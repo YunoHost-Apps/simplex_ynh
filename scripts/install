@@ -53,8 +53,8 @@ ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
 
 ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
 
-chown -R $app:$app "/etc/opt/simplex"
-chown -R $app:$app "/etc/opt/simplex-xftp"
+#chown -R $app:$app "/etc/opt/simplex"
+#chown -R $app:$app "/etc/opt/simplex-xftp"
 
 #=================================================
 # ADD A CONFIGURATION
