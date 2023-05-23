@@ -45,11 +45,11 @@ pushd "$install_dir"
 	./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
 popd
 
-fingerprint=$(cat /etc/opt/simplex/fingerprint)
-ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
+#fingerprint=$(cat /etc/opt/simplex/fingerprint)
+#ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
 
-xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
+#xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
+#ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
 
 #ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
 
@@ -86,6 +86,13 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 ynh_systemd_action --service_name="xftp" --action="start" --log_path="/var/log/$app/$app.log"
+
+
+fingerprint=$(cat /etc/opt/simplex/fingerprint)
+ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
+
+xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
+ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
 
 #=================================================
 # END OF SCRIPT
