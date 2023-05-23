@@ -31,7 +31,7 @@ pushd "$install_dir"
 	public_ip4="$(curl -s ip.yunohost.org)" || true
 	ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 	./smp-server init --no-password --ip $public_ip4 -y
-	./xftp-server init --ip $public_ip4 -q '20gb' --store-log --path $data_dir
+	./xftp-server init --no-password --ip $public_ip4 -q '20gb' --store-log --path $data_dir
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
@@ -41,6 +41,7 @@ xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
 
 chown -R $app:$app "/etc/opt/simplex"
+chown -R $app:$app "/etc/opt/simplex-xftp"
 
 #=================================================
 # SYSTEM CONFIGURATION
