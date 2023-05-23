@@ -9,7 +9,6 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__INSTALL_DIR__/xftp-server start +RTS -N -RTS
-ExecStopPost=/usr/bin/env sh -c '[ -e "/var/opt/simplex-xftp/file-server-store.log" ] && cp "/var/opt/simplex-xftp/file-server-store.log" "/var/opt/simplex-xftp/file-server-store.log.$(date +'%FT%T')"'
 LimitNOFILE=65535
 KillSignal=SIGINT
 TimeoutStopSec=infinity
