@@ -16,10 +16,12 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
+ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:$app "$install_dir"
 chmod +x $install_dir/smp-server
+chmod +x $install_dir/xftp-server
 
 #=================================================
 # SPECIFIC SETUP
@@ -29,6 +31,7 @@ pushd "$install_dir"
 	public_ip4="$(curl -s ip.yunohost.org)" || true
 	ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 	./smp-server init --no-password --ip $public_ip4 -y
+	./ftp-server init -l -p /srv/xftp "$@"
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
@@ -43,6 +46,7 @@ ynh_script_progression --message="Adding system configurations related to $app..
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
+ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 
@@ -53,6 +57,7 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="xftp" --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # END OF SCRIPT
