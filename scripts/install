@@ -13,8 +13,8 @@ source /usr/share/yunohost/helpers
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-#storage_quota="20gb"
-#ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
+storage_quota="20gb"
+ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -41,7 +41,7 @@ public_ip4="$(curl -s ip.yunohost.org)" || true
 ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
 pushd "$install_dir"
-	./smp-server init --no-password --ip $public_ip4 -y
+	./smp-server init --no-password --ip $public_ip4 --store-log -yes
 	./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
 popd
 
@@ -51,7 +51,7 @@ ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
 
-ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
+#ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
 
 #chown -R $app:$app "/etc/opt/simplex"
 #chown -R $app:$app "/etc/opt/simplex-xftp"
@@ -59,12 +59,12 @@ ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-#ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
-#chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
-#chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
+chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
+chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # SYSTEM CONFIGURATION
