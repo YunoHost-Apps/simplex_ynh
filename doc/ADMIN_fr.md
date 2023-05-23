@@ -2,7 +2,7 @@ L'adresse de votre serveur SMP est :
 
 ```
 smp://__FINGERPRINT__@__PUBLIC_IP4__:__PORT__
-xftp://__XFTP_FINGERPRINT__@__PUBLIC_IP4__:__PORT__
+xftp://__XFTP_FINGERPRINT__@__PUBLIC_IP4__:443
 ```
 
 Les clients mobiles sont disponibles pour [iOS](https://apps.apple.com/us/app/simplex-chat/id1605771084), [Android](https://play.google.com/store/apps/details?id=chat.simplex.app) et [f-droid](https://app.simplex.chat).
