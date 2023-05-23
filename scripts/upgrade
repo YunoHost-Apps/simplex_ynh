@@ -70,12 +70,12 @@ chmod +x $install_dir/xftp-server
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+#ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+#ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
-chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
-chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
+#chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
+#chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
