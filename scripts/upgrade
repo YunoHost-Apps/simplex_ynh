@@ -47,10 +47,23 @@ then
 	ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 fi
 
+mkdir -p /var/opt/simplex-xftp /etc/opt/simplex-xftp
+chown -R $app:$app /var/opt/simplex-xftp /etc/opt/simplex-xftp
+
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
 chmod +x $install_dir/smp-server
 chmod +x $install_dir/xftp-server
+
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding a configuration file..." --weight=1
+
+ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+
+chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
+chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
