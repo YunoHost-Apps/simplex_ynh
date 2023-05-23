@@ -18,6 +18,9 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
+mkdir -p /var/opt/simplex-xftp /etc/opt/simplex-xftp
+chown -R $app:$app /var/opt/simplex-xftp /etc/opt/simplex-xftp
+
 chmod -R o-rwx "$install_dir"
 chown -R $app:$app "$install_dir"
 chmod +x $install_dir/smp-server
