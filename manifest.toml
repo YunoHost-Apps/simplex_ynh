@@ -54,6 +54,9 @@ ram.runtime = "50M"
     main.default = 5223
     main.exposed = "TCP"
 
+   [install.domain]
+    type = "domain"
+
     [resources.system_user]
 
     [resources.install_dir]
