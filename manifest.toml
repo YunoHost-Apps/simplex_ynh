@@ -41,6 +41,15 @@ ram.runtime = "50M"
     extract   = false
     rename    = "smp-server"
 
+    [resources.sources.xftp]
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/xftp-server_amd64"
+    amd64.sha256 = ""
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/xftp-server_arm64"
+    arm64.sha256 = "e48e2a57e1992616e33be2b1bda564a978f8bdef3a5e30dce55712bc66278348"
+    in_subdir = false
+    extract   = false
+    rename    = "xftp-server"
+
     [resources.ports]
     main.default = 5223
     main.exposed = "TCP"
