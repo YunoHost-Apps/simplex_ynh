@@ -32,6 +32,7 @@ ynh_script_progression --message="Removing system configurations related to $app
 
 # Remove the dedicated systemd config
 ynh_remove_systemd_config
+ynh_remove_systemd_config --service=xftp
 
 # Remove the app directory securely
 ynh_secure_remove --file="/etc/opt/simplex"
