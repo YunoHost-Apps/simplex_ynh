@@ -13,7 +13,7 @@ maintainers = ["eric_G"]
 license = "AGPL-3.0"
 website = "https://simplex.chat/"
 admindoc = "https://github.com/simplex-chat/simplex-chat/blob/stable/docs/SERVER.md"
-code = "https://github.com/simplex-chat/simplex-chat"
+code = "https://github.com/simplex-chat/simplexmq"
 cpe = "cpe:2.3:a:simplex:simplex_chat"
 fund = "https://opencollective.com/simplex-chat"
 
@@ -41,13 +41,26 @@ ram.runtime = "50M"
     extract   = false
     rename    = "smp-server"
 
+    [resources.sources.xftp]
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/xftp-server_amd64"
+    amd64.sha256 = "24535308621ff9e46d4630fde74cc2f1c8892f1ce1230ce6a538892be64d34f6"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.0.0.1/xftp-server_arm64"
+    arm64.sha256 = "e48e2a57e1992616e33be2b1bda564a978f8bdef3a5e30dce55712bc66278348"
+    in_subdir = false
+    extract   = false
+    rename    = "xftp-server"
+
     [resources.ports]
     main.default = 5223
     main.exposed = "TCP"
+    xftp.default = 5224
+    xftp.exposed = "TCP"
 
     [resources.system_user]
 
     [resources.install_dir]
     dir = "/usr/local/bin/__APP__"
+
+    [resources.data_dir]
 
     [resources.permissions]
