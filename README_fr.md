@@ -28,7 +28,7 @@ SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'uti
 
 * Site officiel de l’app : <https://simplex.chat/>
 * Documentation officielle de l’admin : <https://github.com/simplex-chat/simplex-chat/blob/stable/docs/SERVER.md>
-* Dépôt de code officiel de l’app : <https://github.com/simplex-chat/simplex-chat>
+* Dépôt de code officiel de l’app : <https://github.com/simplex-chat/simplexmq>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_simplex>
 * Signaler un bug : <https://github.com/YunoHost-Apps/simplex_ynh/issues>
 
