@@ -20,6 +20,7 @@ if ynh_exec_warn_less yunohost service status $app >/dev/null
 then
 	ynh_script_progression --message="Removing $app service integration..." --weight=1
 	yunohost service remove $app
+	yunohost service remove xftp
 fi
 
 #=================================================
@@ -31,9 +32,13 @@ ynh_script_progression --message="Removing system configurations related to $app
 
 # Remove the dedicated systemd config
 ynh_remove_systemd_config
+ynh_remove_systemd_config --service=xftp
 
 # Remove the app directory securely
 ynh_secure_remove --file="/etc/opt/simplex"
+ynh_secure_remove --file="/etc/opt/simplex-xftp"
+ynh_secure_remove --file="/var/opt/simplex"
+ynh_secure_remove --file="/var/opt/simplex-xftp"
 
 #=================================================
 # END OF SCRIPT

@@ -1,0 +1,18 @@
+[Unit]
+Description=XFTP server systemd service
+Documentation=https://simplex.chat/docs/xftp-server.html
+After=network.target
+
+[Service]
+Type=simple
+User=__APP__
+Group=__APP__
+WorkingDirectory=__INSTALL_DIR__/
+ExecStart=__INSTALL_DIR__/xftp-server start +RTS -N -RTS
+LimitNOFILE=65535
+KillSignal=SIGINT
+TimeoutStopSec=infinity
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

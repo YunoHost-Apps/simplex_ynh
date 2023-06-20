@@ -1,5 +1,6 @@
 [Unit]
 Description=SimpleX: Messaging Protocol Server
+Documentation=https://simplex.chat/docs/server.html
 After=network.target
 
 [Service]
