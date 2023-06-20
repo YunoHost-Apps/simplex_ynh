@@ -57,7 +57,7 @@ chmod +x $install_dir/xftp-server
 # SPECIFIC SETUP
 #=================================================
 
-if [ ! -f /etc/opt/simplex-xftp ]; then
+if [ ! -d /etc/opt/simplex-xftp ]; then
 
 	mkdir -p "/etc/opt/simplex-xftp"
 
