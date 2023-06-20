@@ -48,7 +48,7 @@ then
 	ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 fi
 
-mkdir -p /etc/opt/simplex-xftp /var/opt/simplex-xftp
+#mkdir -p /etc/opt/simplex-xftp /var/opt/simplex-xftp
 chown -R $app:$app /etc/opt/simplex-xftp /var/opt/simplex-xftp
 
 chmod -R o-rwx "$install_dir"
@@ -63,7 +63,8 @@ chmod +x $install_dir/xftp-server
 public_ip4="$(curl -s ip.yunohost.org)" || true
 ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
-if [ -z "/etc/opt/simplex-xftp/fingerprint" ]; then
+if [ -z "/etc/opt/simplex-xftp" ]; then
+	mkdir -p "/etc/opt/simplex-xftp"
 	pushd "$install_dir"
 		./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
 	popd
