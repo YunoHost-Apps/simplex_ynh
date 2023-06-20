@@ -63,7 +63,8 @@ chmod +x $install_dir/xftp-server
 public_ip4="$(curl -s ip.yunohost.org)" || true
 ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
-#if [ -z "/etc/opt/simplex-xftp" ]; then
+if [ ! -f /etc/opt/simplex-xftp ]; then
+
 	mkdir -p "/etc/opt/simplex-xftp"
 	pushd "$install_dir"
 		./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
@@ -74,9 +75,8 @@ ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
 	ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
 
-	#chown -R $app:$app "/etc/opt/simplex-xftp"
 	chown -R $app:$app /etc/opt/simplex-xftp /var/opt/simplex-xftp
-#fi
+fi
 
 #=================================================
 # ADD A CONFIGURATION
