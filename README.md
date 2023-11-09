@@ -29,7 +29,7 @@ SimpleX - the first messaging platform operating without user identifiers of any
 * Official app website: <https://simplex.chat/>
 * Official admin documentation: <https://github.com/simplex-chat/simplex-chat/blob/stable/docs/SERVER.md>
 * Upstream app code repository: <https://github.com/simplex-chat/simplexmq>
-* YunoHost documentation for this app: <https://yunohost.org/app_simplex>
+* YunoHost Store: <https://apps.yunohost.org/app/simplex>
 * Report a bug: <https://github.com/YunoHost-Apps/simplex_ynh/issues>
 
 ## Developer info
