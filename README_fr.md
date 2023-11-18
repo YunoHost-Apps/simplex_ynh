@@ -18,7 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
-**Version incluse :** 5.1.0~ynh1
+**Version incluse :** 5.1.0~ynh2
 
 ## Captures d’écran
 
