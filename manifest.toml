@@ -7,7 +7,7 @@ description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'uti
 
 version = "5.1.0~ynh2"
 
-maintainers = ["eric_G"]
+maintainers = []
 
 [upstream]
 license = "AGPL-3.0"
