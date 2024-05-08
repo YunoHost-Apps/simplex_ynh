@@ -93,7 +93,7 @@ ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
-yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_or" --test_status="pgrep tor"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" #--needs_exposed_ports="$port_or" --test_status="pgrep tor"
 
 #=================================================
 # START SYSTEMD SERVICE

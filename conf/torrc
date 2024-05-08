@@ -1,24 +1,9 @@
-BridgeRelay 1
-
-# Replace "TODO1" with a Tor port of your choice.
-# This port must be externally reachable.
-# Avoid port 9001 because it's commonly associated with Tor and censors may be scanning the Internet for this port.
-ORPort __PORT_OR__
-
-ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
-
-# Replace "TODO2" with an obfs4 port of your choice.
-# This port must be externally reachable and must be different from the one specified for ORPort.
-# Avoid port 9001 because it's commonly associated with Tor and censors may be scanning the Internet for this port.
-ServerTransportListenAddr obfs4 0.0.0.0:__PORT_OBFS4__
-
-# Local communication port between Tor and obfs4.  Always set this to "auto".
-# "Ext" means "extended", not "external".  Don't try to set a specific port number, nor listen on 0.0.0.0.
-ExtORPort auto
-
-# Replace "<address@email.com>" with your email address so we can contact you if there are problems with your bridge.
-# This is optional but encouraged.
-#ContactInfo _CONTACT_
-
-# Pick a nickname that you like for your bridge.  This is optional.
-#Nickname _NICKNAME_
+# Enable log (otherwise, tor doesn't seemd to deploy onion address)
+Log notice file /var/log/tor/notices.log
+# Enable single hop routing (2 options below are dependencies of third). Will reduce latency in exchange of anonimity (since tor runs alongside xftp-server and onion address will be displayed in clients, this is totally fine)
+SOCKSPort 0
+HiddenServiceNonAnonymousMode 1
+HiddenServiceSingleHopMode 1
+# xftp-server hidden service host directory and port mappings
+HiddenServiceDir /var/lib/tor/simplex-xftp/
+HiddenServicePort 443 localhost:443
