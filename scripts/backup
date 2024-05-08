@@ -32,6 +32,7 @@ ynh_backup --src_path="/var/opt/simplex-xftp"
 
 ynh_backup --src_path="/etc/systemd/system/$app.service"
 ynh_backup --src_path="/etc/systemd/system/xftp.service"
+ynh_backup --src_path="/etc/tor/torrc"
 
 #=================================================
 # END OF SCRIPT

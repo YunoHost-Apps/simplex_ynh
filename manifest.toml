@@ -59,6 +59,11 @@ ram.runtime = "50M"
    xftp.default = 5224
    xftp.exposed = "TCP"
 
+   or.default = 9002
+   or.exposed = "Both"
+   obfs4.default = 9003
+   obfs4.exposed = "Both"
+
    [resources.system_user]
 
    [resources.install_dir]

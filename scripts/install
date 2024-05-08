@@ -25,8 +25,11 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
+mkdir /var/lib/tor/simplex-xftp/
+chown debian-tor:debian-tor /var/lib/tor/simplex-xftp/ && chmod 700 /var/lib/tor/simplex-xftp/
+
 mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
-chown -R $app:$app  /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
+chown -R $app:$app /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:$app "$install_dir"
@@ -66,6 +69,11 @@ ynh_add_config --template="file-server.ini" --destination="/etc/opt/simplex-xftp
 chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
 chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
+ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
+
+chmod 660  /etc/tor/torrc
+chown :debian-tor /etc/tor/torrc
+
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
@@ -77,6 +85,7 @@ ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_or" --test_status="pgrep tor"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -86,6 +95,7 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 ynh_systemd_action --service_name="xftp" --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=tor --action="restart" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT

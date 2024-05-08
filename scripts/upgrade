@@ -18,6 +18,7 @@ ynh_script_progression --message="Stopping a systemd service..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 ynh_systemd_action --service_name=xftp --action="stop" --log_path="systemd"
+ynh_systemd_action --service_name=tor --action="stop" --log_path="systemd"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -76,6 +77,11 @@ fi
 #chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
 #chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
+ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
+
+chmod 660  /etc/tor/torrc
+chown :debian-tor /etc/tor/torrc
+
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
@@ -87,6 +93,7 @@ ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_or" --test_status="pgrep tor"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -95,6 +102,7 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 ynh_systemd_action --service_name=xftp --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=tor --action="restart" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
