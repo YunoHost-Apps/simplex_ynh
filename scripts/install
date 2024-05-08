@@ -25,9 +25,6 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
-mkdir /var/lib/tor/simplex-xftp/
-chown debian-tor:debian-tor /var/lib/tor/simplex-xftp/ && chmod 700 /var/lib/tor/simplex-xftp/
-
 mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 chown -R $app:$app /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 
@@ -74,6 +71,9 @@ ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
 chmod 660  /etc/tor/torrc
 chown :debian-tor /etc/tor/torrc
 
+mkdir /etc/tor/simplex-xftp/
+chown debian-tor:debian-tor /etc/tor/simplex-xftp/ && chmod 700 /etc/tor/simplex-xftp/
+
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
@@ -81,7 +81,7 @@ ynh_script_progression --message="Adding system configurations related to $app..
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
-ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
+ynh_add_systemd_config --service=xftp --template=xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
