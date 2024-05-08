@@ -24,10 +24,10 @@ ynh_systemd_action --service_name=xftp --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
-#if [ -z "${storage_quota:-}" ]; then
-#	storage_quota="20gb"
-#	ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
-#fi
+if [ -z "${storage_quota:-}" ]; then
+	storage_quota="20gb"
+	ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -55,7 +55,7 @@ if [ ! -d /etc/opt/simplex-xftp ]; then
 	ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
 
 	pushd "$install_dir"
-		./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
+		./xftp-server init --ip $public_ip4 --quota '$storage_quota' --store-log --path $data_dir
 	popd
 
 	xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
