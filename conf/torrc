@@ -5,5 +5,5 @@ SOCKSPort 0
 HiddenServiceNonAnonymousMode 1
 HiddenServiceSingleHopMode 1
 # xftp-server hidden service host directory and port mappings
-HiddenServiceDir /var/lib/tor/simplex-xftp/
+HiddenServiceDir /etc/tor/simplex-xftp/
 HiddenServicePort 443 localhost:443
