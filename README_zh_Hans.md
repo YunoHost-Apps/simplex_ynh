@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 SimpleX
+# YunoHost 上的 SimpleX
 
 [![集成程度](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![工作状态](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
 
@@ -18,7 +18,7 @@
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**分发版本：** 5.6.2~ynh1
+**分发版本：** 5.7.1~ynh1
 
 ## 截图
 
