@@ -37,7 +37,6 @@ ynh_remove_systemd_config --service=xftp
 # Remove the app directory securely
 ynh_secure_remove --file="/etc/opt/simplex"
 ynh_secure_remove --file="/etc/opt/simplex-xftp"
-
 ynh_secure_remove --file="/var/opt/simplex"
 ynh_secure_remove --file="/var/opt/simplex-xftp"
 
