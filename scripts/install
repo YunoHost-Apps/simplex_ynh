@@ -97,6 +97,9 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 ynh_systemd_action --service_name="xftp" --action="start" --log_path="systemd"
 ynh_systemd_action --service_name=tor --action="restart" --log_path="systemd"
 
+tor=$(cat /var/lib/tor/simplex-xftp/hostname)
+ynh_app_setting_set --app=$app --key=tor --value=$tor
+
 #=================================================
 # END OF SCRIPT
 #=================================================
