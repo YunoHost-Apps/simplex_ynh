@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "5.7.1~ynh1"
+version = "5.7.5.0~ynh1"
 
 maintainers = []
 
@@ -36,19 +36,19 @@ ram.runtime = "50M"
 
  [resources.sources]
     [resources.sources.main]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.6.2/smp-server_amd64"
-    amd64.sha256 = "d711cc5bddddf4abd01d971d7d4cda879bc4d4d2beb455154031589ffcb0c891"
-    arm64.url = "https://github.com/skyuk3000/simplex_ynh/releases/download/5.2.0/smp-server_arm64"
-    arm64.sha256 = "2a5a6f34230443212d3166ec7c706440eb2748c6cd2b4e47526a4ccf45717584"
+    amd64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.5.0/smp-server_amd64"
+    amd64.sha256 = "b507e3b7c381eefa96ec1f9f7648ded78cc971827e90f5a137335045d67425e8"
+    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.5.0/smp-server_arm64"
+    arm64.sha256 = "525a7f3d2a361cf3344cfff2358c615b827418eb98d6c390d183b7e40fb008d4"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
 
     [resources.sources.xftp]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.6.2/xftp-server_amd64"
-    amd64.sha256 = "6febc49aa989a02ad8cfc27b657c30acc425878e88a995beca864afeaaff7b3e"
-    arm64.url = "https://github.com/skyuk3000/simplex_ynh/releases/download/5.2.0/xftp-server_arm64"
-    arm64.sha256 = "a8f4118610efca9bd7b2d687c04f95a9cf52114d1941c8f94441d80c1c04d92a"
+    amd64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.5.0/xftp-server_amd64"
+    amd64.sha256 = "f4182dd6ad65862705bc7fdd2c10f5e38a5483344e832ec84b7a2fc288c74ef6"
+    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.5.0/xftp-server_arm64"
+    arm64.sha256 = "b406b793383b0dd202d6bd60f9d0054d2c4249ac34e4d87c731bb131019c1561"
     in_subdir = false
     extract   = false
     rename    = "xftp-server"
