@@ -10,6 +10,13 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# RETRIEVE ARGUMENTS FROM THE MANIFEST
+#=================================================
+
+#storage_quota="20gb"
+#ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=1
@@ -54,7 +61,7 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 #=================================================
 #ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-#ynh_add_config --template="../conf/file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+#ynh_add_config --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
 #chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
 #chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
