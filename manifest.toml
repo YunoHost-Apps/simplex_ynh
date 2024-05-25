@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "5.7.1~ynh1"
+version = "5.7.4.1~ynh1"
 
 maintainers = []
 
@@ -38,8 +38,8 @@ ram.runtime = "50M"
     [resources.sources.main]
     amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.6.2/smp-server_amd64"
     amd64.sha256 = "d711cc5bddddf4abd01d971d7d4cda879bc4d4d2beb455154031589ffcb0c891"
-    arm64.url = "https://github.com/skyuk3000/simplex_ynh/releases/download/5.2.0/smp-server_arm64"
-    arm64.sha256 = "2a5a6f34230443212d3166ec7c706440eb2748c6cd2b4e47526a4ccf45717584"
+    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.4.1/smp-server_arm64"
+    arm64.sha256 = "2b5e09768afac373a4d3637009f88b2af5794c24de3c0c3db31ee612b797210f"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
@@ -47,8 +47,8 @@ ram.runtime = "50M"
     [resources.sources.xftp]
     amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.6.2/xftp-server_amd64"
     amd64.sha256 = "6febc49aa989a02ad8cfc27b657c30acc425878e88a995beca864afeaaff7b3e"
-    arm64.url = "https://github.com/skyuk3000/simplex_ynh/releases/download/5.2.0/xftp-server_arm64"
-    arm64.sha256 = "a8f4118610efca9bd7b2d687c04f95a9cf52114d1941c8f94441d80c1c04d92a"
+    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.7.4.1/xftp-server_arm64"
+    arm64.sha256 = "c5f02f9020b5dab7dbe7e5273f8eae8384e2e1ab8fb105a5e5998cf88dcab176"
     in_subdir = false
     extract   = false
     rename    = "xftp-server"
