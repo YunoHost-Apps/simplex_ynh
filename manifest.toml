@@ -36,19 +36,19 @@ ram.runtime = "50M"
 
  [resources.sources]
     [resources.sources.main]
-    amd64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.8.0/smp-server_amd64"
-    amd64.sha256 = "a8b14c02f7d1447f57507e80df508711ac0852c4899eca76dc70f2b20e8473d3"
-    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.8.0/smp-server_arm64"
-    arm64.sha256 = "26860b3622a0474ce7628500ed8f0cc1c5f124c2df48a957139f53ddd2549278"
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_amd64"
+    amd64.sha256 = "8b5806a63ccbec373e8a4681cbb97113b0757a19b5f8a889dd9611c767b1a57c"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_arm64"
+    arm64.sha256 = "dcf246b4e065199fbd8eb41845eef4d93ba3bcf01eeddc833bb318a6c78db988"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
 
     [resources.sources.xftp]
-    amd64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.8.0/xftp-server_amd64"
-    amd64.sha256 = "79836b739690e928e5a1326d38a00b0898803c2d80b894a608537490a23bafac"
-    arm64.url = "https://github.com/pp-r/simplex_ynh/releases/download/5.8.0/xftp-server_arm64"
-    arm64.sha256 = "538713422afd18c46e5f0b9d0e45fdd42baa3bd5e37788cfc8a2f8a04ccb30d1"
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_amd64"
+    amd64.sha256 = "d7550d5dc6b3ff3dfee145e39ab5da9429c6fde295d705d634e21c2e62b53142"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_arm64"
+    arm64.sha256 = "515bcdde8d46e07614168b926e61b1e17f039b8a2be29590cde1ff9caea5fa12"
     in_subdir = false
     extract   = false
     rename    = "xftp-server"
