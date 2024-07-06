@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # SimpleX pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
 
 [![Installer SimpleX avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
@@ -18,7 +18,7 @@ Il NE doit PAS être modifié à la main.
 
 SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
-**Version incluse :** 5.8.0~ynh2
+**Version incluse :** 5.8.2~ynh1
 
 ## Captures d’écran
 

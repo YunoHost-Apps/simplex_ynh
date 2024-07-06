@@ -5,7 +5,7 @@
 
 # YunoHost 上的 SimpleX
 
-[![集成程度](https://dash.yunohost.org/integration/simplex.svg)](https://dash.yunohost.org/appci/app/simplex) ![工作状态](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
 
 [![使用 YunoHost 安装 SimpleX](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
@@ -18,7 +18,7 @@
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**分发版本：** 5.8.0~ynh2
+**分发版本：** 5.8.2~ynh1
 
 ## 截图
 
