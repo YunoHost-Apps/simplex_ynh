@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "5.8.0~ynh2"
+version = "5.8.2~ynh1"
 
 maintainers = []
 
@@ -36,19 +36,19 @@ ram.runtime = "50M"
 
  [resources.sources]
     [resources.sources.main]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_amd64"
-    amd64.sha256 = "8b5806a63ccbec373e8a4681cbb97113b0757a19b5f8a889dd9611c767b1a57c"
-    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_arm64"
-    arm64.sha256 = "dcf246b4e065199fbd8eb41845eef4d93ba3bcf01eeddc833bb318a6c78db988"
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.2/smp-server_amd64"
+    amd64.sha256 = "ba9e123c20334cf595bf1a0d77b8d24feb1b4784da6a40dc0ebc4786f55d6866"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.2/smp-server_arm64"
+    arm64.sha256 = "d7458dd713b0d4104285dfad6e0163c7679d268b6f6a66a7042e719b3c9b9596"
     in_subdir = false
     extract   = false
     rename    = "smp-server"
 
     [resources.sources.xftp]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_amd64"
-    amd64.sha256 = "d7550d5dc6b3ff3dfee145e39ab5da9429c6fde295d705d634e21c2e62b53142"
-    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_arm64"
-    arm64.sha256 = "515bcdde8d46e07614168b926e61b1e17f039b8a2be29590cde1ff9caea5fa12"
+    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.2/xftp-server_amd64"
+    amd64.sha256 = "155aa5fdc317dea7ff1a0a8c767e485f4fc2a735867664b431ca4885216f44f4"
+    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.2/xftp-server_arm64"
+    arm64.sha256 = "8bc8a2d2ac2789f4283dd89d27d1db1b8766664a131b2b3f7be17657db004b3c"
     in_subdir = false
     extract   = false
     rename    = "xftp-server"
