@@ -18,7 +18,7 @@ NON DEVE essere modificato manualmente.
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**Versione pubblicata:** 5.8.2~ynh1
+**Versione pubblicata:** 6.0.2~ynh1
 
 ## Screenshot
 
