@@ -22,8 +22,6 @@ ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 chown -R $app:$app  /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:$app "$install_dir"
 chmod +x $install_dir/smp-server
 chmod +x $install_dir/xftp-server
 
@@ -65,7 +63,6 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
-# Create a dedicated systemd config
 ynh_config_add_systemd
 ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service
 
@@ -77,7 +74,6 @@ yunohost service add xftp --description="Messaging platform" --log="/var/log/$ap
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service=$app --action="start" --log_path="systemd"
 ynh_systemctl --service="xftp" --action="start" --log_path="systemd"
 
