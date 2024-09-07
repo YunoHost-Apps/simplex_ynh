@@ -54,9 +54,6 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 
 #ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
-#chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
-#chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
-
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
