@@ -14,19 +14,15 @@ ynh_systemctl --service=xftp --action="stop" --log_path="systemd"
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression "Ensuring downward compatibility..."
+#ynh_script_progression "Ensuring downward compatibility..."
 
-#if [ -z "${storage_quota:-}" ]; then
-#	storage_quota="20gb"
-#	ynh_app_setting_set --key=storage_quota --value=$storage_quota
-#fi
+# ynh_app_setting_set_default --key=storage_quota --value="20gb"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
@@ -62,9 +58,6 @@ fi
 #ynh_script_progression "Adding $app's configuration..."
 
 #ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
-
-#chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
-#chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
