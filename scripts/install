@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,12 +8,12 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 #storage_quota="20gb"
-#ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
+#ynh_app_setting_set --key=storage_quota --value=$storage_quota
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
@@ -28,8 +22,6 @@ ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 chown -R $app:$app  /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:$app "$install_dir"
 chmod +x $install_dir/smp-server
 chmod +x $install_dir/xftp-server
 
@@ -38,7 +30,7 @@ chmod +x $install_dir/xftp-server
 #=================================================
 
 public_ip4="$(curl -s ip.yunohost.org)" || true
-ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
+ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
 pushd "$install_dir"
 	./smp-server init --no-password --ip $public_ip4 --store-log --yes
@@ -46,12 +38,12 @@ pushd "$install_dir"
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
-ynh_app_setting_set --app=$app --key=fingerprint --value=$fingerprint
+ynh_app_setting_set --key=fingerprint --value=$fingerprint
 
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
+ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
 
-ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
+ynh_replace --match="port: 443" --replace="port: $port_xftp" --file="/etc/opt/simplex-xftp/file-server.ini"
 
 chown -R $app:$app "/etc/opt/simplex"
 chown -R $app:$app "/etc/opt/simplex-xftp"
@@ -59,9 +51,9 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression --message="Adding a configuration file..." --weight=1
+#ynh_script_progression "Adding $app's configuration..."
 
-#ynh_add_config --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
 #chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
 #chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
@@ -69,11 +61,10 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..." --weight=6
+ynh_script_progression "Adding system configurations related to $app..."
 
-# Create a dedicated systemd config
-ynh_add_systemd_config
-ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
+ynh_config_add_systemd
+ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
@@ -81,14 +72,13 @@ yunohost service add xftp --description="Messaging platform" --log="/var/log/$ap
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
-ynh_systemd_action --service_name="xftp" --action="start" --log_path="systemd"
+ynh_systemctl --service=$app --action="start" --log_path="systemd"
+ynh_systemctl --service="xftp" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
