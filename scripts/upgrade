@@ -1,45 +1,31 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --weight=1
+ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
-ynh_systemd_action --service_name=xftp --action="stop" --log_path="systemd"
+ynh_systemctl --service=$app --action="stop" --log_path="systemd"
+ynh_systemctl --service=xftp --action="stop" --log_path="systemd"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+#ynh_script_progression "Ensuring downward compatibility..."
 
-#if [ -z "${storage_quota:-}" ]; then
-#	storage_quota="20gb"
-#	ynh_app_setting_set --app=$app --key=storage_quota --value=$storage_quota
-#fi
+# ynh_app_setting_set_default --key=storage_quota --value="20gb"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Upgrading source files..." --weight=1
+ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
 chmod +x $install_dir/smp-server
 chmod +x $install_dir/xftp-server
 
@@ -52,16 +38,16 @@ if [ ! -d /etc/opt/simplex-xftp ]; then
 	mkdir -p "/etc/opt/simplex-xftp"
 
 	public_ip4="$(curl -s ip.yunohost.org)" || true
-	ynh_app_setting_set --app=$app --key=public_ip4 --value=$public_ip4
+	ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
 	pushd "$install_dir"
 		./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
 	popd
 
 	xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-	ynh_app_setting_set --app=$app --key=xftp_fingerprint --value=$xftp_fingerprint
+	ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
 
-	ynh_replace_string --match_string="port: 443" --replace_string="port: $port_xftp" --target_file="/etc/opt/simplex-xftp/file-server.ini"
+	ynh_replace --match="port: 443" --replace="port: $port_xftp" --file="/etc/opt/simplex-xftp/file-server.ini"
 
 	chown -R $app:$app /etc/opt/simplex-xftp /var/opt/simplex-xftp
 fi
@@ -69,21 +55,17 @@ fi
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression --message="Adding a configuration file..." --weight=1
+#ynh_script_progression "Adding $app's configuration..."
 
-#ynh_add_config --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
-
-#chmod 400 "/etc/opt/simplex-xftp/file-server.ini"
-#chown $app:$app "/etc/opt/simplex-xftp/file-server.ini"
+#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=4
+ynh_script_progression "Upgrading system configurations related to $app..."
 
-# Create a dedicated systemd config
-ynh_add_systemd_config
-ynh_add_systemd_config --service=xftp --template=../conf/xftp.systemd.service
+ynh_config_add_systemd
+ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
@@ -91,13 +73,13 @@ yunohost service add xftp --description="Messaging platform" --log="/var/log/$ap
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
-ynh_systemd_action --service_name=xftp --action="start" --log_path="systemd"
+ynh_systemctl --service=$app --action="start" --log_path="systemd"
+ynh_systemctl --service=xftp --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"
