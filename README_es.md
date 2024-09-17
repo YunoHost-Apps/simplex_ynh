@@ -18,7 +18,7 @@ No se debe editar a mano.
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**Versión actual:** 6.0.3~ynh2
+**Versión actual:** 6.0.4~ynh1
 
 ## Capturas
 
@@ -34,7 +34,7 @@ SimpleX - the first messaging platform operating without user identifiers of any
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/simplex_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/simplex_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
