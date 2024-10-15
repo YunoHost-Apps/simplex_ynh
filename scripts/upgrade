@@ -37,7 +37,7 @@ if [ ! -d /etc/opt/simplex-xftp ]; then
 
 	mkdir -p "/etc/opt/simplex-xftp"
 
-	public_ip4="$(curl -s https://ip.yunohost.org/)" || true
+	public_ip4="$(curl -s https://ip.yunohost.org)" || true
 	ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
 	pushd "$install_dir"
