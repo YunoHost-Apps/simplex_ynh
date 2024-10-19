@@ -18,7 +18,7 @@ Il NE doit PAS être modifié à la main.
 
 SimpleX - la première plate-forme de messagerie qui n'a aucun identifiant d'utilisateur d'aucune sorte - 100 % privée de par sa conception !
 
-**Version incluse :** 6.0.6~ynh2
+**Version incluse :** 6.0.6~ynh3
 
 ## Captures d’écran
 
