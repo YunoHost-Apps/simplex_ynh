@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # SimpleX untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/simplex)](https://ci-apps.yunohost.org/ci/apps/simplex/)
+![Status kerja](https://apps.yunohost.org/badge/state/simplex)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/simplex)
 
 [![Pasang SimpleX dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
@@ -18,7 +20,7 @@ Ini TIDAK boleh diedit dengan tangan.
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**Versi terkirim:** 6.0.6~ynh3
+**Versi terkirim:** 6.2.0~ynh1
 
 ## Tangkapan Layar
 

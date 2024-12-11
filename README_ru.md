@@ -5,7 +5,9 @@
 
 # SimpleX для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/simplex)](https://ci-apps.yunohost.org/ci/apps/simplex/)
+![Состояние работы](https://apps.yunohost.org/badge/state/simplex)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/simplex)
 
 [![Установите SimpleX с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
@@ -18,7 +20,7 @@
 
 SimpleX - the first messaging platform operating without user identifiers of any kind - 100% private by design! iOS and Android apps are released.
 
-**Поставляемая версия:** 6.0.6~ynh3
+**Поставляемая версия:** 6.2.0~ynh1
 
 ## Снимки экрана
 
