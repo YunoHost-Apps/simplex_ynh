@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # SimpleX YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/simplex)](https://ci-apps.yunohost.org/ci/apps/simplex/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/simplex)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/simplex)
 
 [![Instalatu SimpleX YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 

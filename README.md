@@ -5,7 +5,9 @@ It shall NOT be edited by hand.
 
 # SimpleX for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Working status](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Integration level](https://apps.yunohost.org/badge/integration/simplex)](https://ci-apps.yunohost.org/ci/apps/simplex/)
+![Working status](https://apps.yunohost.org/badge/state/simplex)
+![Maintenance status](https://apps.yunohost.org/badge/maintained/simplex)
 
 [![Install SimpleX with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 

@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # SimpleX voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/simplex.svg)](https://ci-apps.yunohost.org/ci/apps/simplex/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/simplex.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/simplex.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/simplex)](https://ci-apps.yunohost.org/ci/apps/simplex/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/simplex)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/simplex)
 
 [![SimpleX met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=simplex)
 
