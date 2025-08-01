@@ -42,8 +42,8 @@ public_ip4="$(curl -s https://ip.yunohost.org)" || true
 ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
 pushd "$install_dir"
-	./smp-server init --no-password --ip $public_ip4 --store-log --yes
-	./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
+	./smp-server init --no-password --fqdn $domain --store-log --yes
+	./xftp-server init --fqdn $domain --quota '20gb' --store-log --path $data_dir
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
