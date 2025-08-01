@@ -15,14 +15,24 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
-ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
+mkdir "$install_dir"
+chown -R "$app:www-data" "$install_dir"
+
+ynh_setup_source --dest_dir="/usr/local/bin/$app"
+ynh_setup_source --dest_dir="/usr/local/bin/$app" --source_id="xftp"
 
 mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 chown -R $app:$app  /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
 
-chmod +x $install_dir/smp-server
-chmod +x $install_dir/xftp-server
+chmod +x "/usr/local/bin/$app/smp-server"
+chmod +x "/usr/local/bin/$app/xftp-server"
+
+#=================================================
+# APP INITIAL CONFIGURATION
+#=================================================
+ynh_script_progression "Adding $app's configuration files..."
+
+ynh_config_add --template="file-server.ini" --destination="$install_dir/file-server.ini"
 
 #=================================================
 # SPECIFIC SETUP
@@ -48,16 +58,12 @@ chown -R $app:$app "/etc/opt/simplex"
 chown -R $app:$app "/etc/opt/simplex-xftp"
 
 #=================================================
-# ADD A CONFIGURATION
-#=================================================
-#ynh_script_progression "Adding $app's configuration..."
-
-#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
-
-#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
+
+# Create a dedicated NGINX config using the conf/nginx.conf template
+ynh_config_add_nginx
 
 ynh_config_add_systemd
 ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service

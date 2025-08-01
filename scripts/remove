@@ -16,6 +16,8 @@ fi
 ynh_config_remove_systemd
 ynh_config_remove_systemd xftp
 
+ynh_config_remove_nginx
+
 ynh_safe_rm "/etc/opt/simplex"
 ynh_safe_rm "/etc/opt/simplex-xftp"
 ynh_safe_rm "/var/opt/simplex"
