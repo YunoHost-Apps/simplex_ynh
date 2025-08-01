@@ -41,7 +41,7 @@ ynh_config_add --template="file-server.ini" --destination="$install_dir/file-ser
 public_ip4="$(curl -s https://ip.yunohost.org)" || true
 ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
-pushd "$install_dir"
+pushd "/usr/local/bin/$app"
 	./smp-server init --no-password --fqdn $domain --store-log --yes
 	./xftp-server init --fqdn $domain --quota '20gb' --store-log --path $data_dir
 popd
