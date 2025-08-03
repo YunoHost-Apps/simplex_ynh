@@ -34,9 +34,9 @@ chmod +x /usr/local/bin/$app/xftp-server
 public_ip4="$(curl -s https://ip.yunohost.org)" || true
 ynh_app_setting_set --key=public_ip4 --value=$public_ip4
 
-pushd "$install_dir"
+pushd "/usr/local/bin/$app"
 	./smp-server init --no-password --ip $public_ip4 --store-log --yes
-	./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
+	./xftp-server init -l -p $data_dir --ip $public_ip4 -q '20gb'
 popd
 
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
@@ -56,9 +56,9 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 ynh_script_progression "Adding $app's configuration..."
 
 ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
-ynh_config_add --template="xftp-server.ini" --destination="/etc/opt/simplex/xftp-server.ini"
+ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex/file-server.ini"
 
-chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/xftp-server.ini"
+chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/file-server.ini"
 
 #=================================================
 # SYSTEM CONFIGURATION
