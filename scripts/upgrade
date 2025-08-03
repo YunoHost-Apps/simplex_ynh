@@ -55,9 +55,12 @@ fi
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression "Adding $app's configuration..."
+ynh_script_progression "Adding $app's configuration..."
 
-#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
+ynh_config_add --template="xftp-server.ini" --destination="/etc/opt/simplex/xftp-server.ini"
+
+chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/xftp-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
