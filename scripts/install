@@ -65,6 +65,8 @@ chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/file-server.
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
+ynh_config_add_nginx
+
 ynh_config_add_systemd
 ynh_config_add_systemd --service=xftp --template=../conf/xftp-systemd.service
 
