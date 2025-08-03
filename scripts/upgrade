@@ -23,11 +23,11 @@ ynh_systemctl --service=xftp --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
-ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
+ynh_setup_source --dest_dir="/usr/local/bin/$app"
+ynh_setup_source --dest_dir="/usr/local/bin/$app" --source_id="xftp"
 
-chmod +x $install_dir/smp-server
-chmod +x $install_dir/xftp-server
+chmod +x /usr/local/bin/$app/smp-server
+chmod +x /usr/local/bin/$app/xftp-server
 
 #=================================================
 # SPECIFIC SETUP
@@ -63,6 +63,8 @@ fi
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
+
+ynh_config_add_nginx
 
 ynh_config_add_systemd
 ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service

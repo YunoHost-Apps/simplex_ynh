@@ -15,14 +15,17 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
-ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
+ynh_setup_source --dest_dir="/usr/local/bin/$app"
+ynh_setup_source --dest_dir="/usr/local/bin/$app" --source_id="xftp"
 
-mkdir -p /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
-chown -R $app:$app  /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
+mkdir -p /etc/opt/simplex /var/opt/simplex
+mkdir -p /etc/opt/simplex-xftp /var/opt/simplex-xftp
 
-chmod +x $install_dir/smp-server
-chmod +x $install_dir/xftp-server
+chown -R $app:$app /etc/opt/simplex-xftp /etc/opt/simplex /var/opt/simplex-xftp /var/opt/simplex
+chown -R $app:www-data "$install_dir"
+
+chmod +x /usr/local/bin/$app/smp-server
+chmod +x /usr/local/bin/$app/xftp-server
 
 #=================================================
 # SPECIFIC SETUP

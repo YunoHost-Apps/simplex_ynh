@@ -32,6 +32,7 @@ chown -R $app:$app /var/opt/simplex-xftp /var/opt/simplex /etc/opt/simplex-xftp 
 
 ynh_restore "/etc/systemd/system/$app.service"
 systemctl enable $app.service --quiet
+
 ynh_restore "/etc/systemd/system/xftp.service"
 systemctl enable xftp.service --quiet
 
