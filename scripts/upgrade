@@ -70,7 +70,7 @@ ynh_script_progression "Upgrading system configurations related to $app..."
 ynh_config_add_nginx
 
 ynh_config_add_systemd
-ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service
+ynh_config_add_systemd --service=xftp --template=../conf/xftp-systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
