@@ -7,8 +7,8 @@ source /usr/share/yunohost/helpers
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-#storage_quota="20gb"
-#ynh_app_setting_set --key=storage_quota --value=$storage_quota
+storage_quota="20gb"
+ynh_app_setting_set --key=storage_quota --value=$storage_quota
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -53,12 +53,12 @@ chown -R $app:$app "/etc/opt/simplex-xftp"
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression "Adding $app's configuration..."
+ynh_script_progression "Adding $app's configuration..."
 
-#ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
-#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex/file-server.ini"
+ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
+ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex/file-server.ini"
 
-#chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/file-server.ini"
+chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/file-server.ini"
 
 #=================================================
 # SYSTEM CONFIGURATION
