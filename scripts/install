@@ -61,6 +61,14 @@ ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex/file
 chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex/file-server.ini"
 
 #=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression "Adding $app's configuration..."
+
+cp -f "/etc/yunohost/certs/$domain/crt.pem" "/etc/opt/simplex/web.crt"
+cp -f "/etc/yunohost/certs/$domain/key.pem" "/etc/opt/simplex/web.key"
+
+#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
