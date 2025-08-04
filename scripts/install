@@ -27,24 +27,6 @@ chown -R $app:www-data "$install_dir"
 chmod +x /usr/local/bin/$app/smp-server /usr/local/bin/$app/xftp-server
 
 #=================================================
-# SPECIFIC SETUP
-#=================================================
-ynh_script_progression "Configuring $app..."
-
-pushd "/usr/local/bin/$app"
-	./smp-server init --yes -l -n $domain --no-password
-	./xftp-server init -l -p $data_dir -n $domain -q 20gb
-popd
-
-chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
-
-fingerprint=$(cat /etc/opt/simplex/fingerprint)
-ynh_app_setting_set --key=fingerprint --value=$fingerprint
-
-xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
-
-#=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression "Adding Tor configuration..."
@@ -57,6 +39,26 @@ chown :debian-tor "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
 
 mkdir /var/lib/tor/simplex-smp/
 chown debian-tor:debian-tor /var/lib/tor/simplex-smp/ && chmod 700 /var/lib/tor/simplex-smp/
+
+#=================================================
+# SPECIFIC SETUP
+#=================================================
+ynh_script_progression "Configuring $app..."
+
+pushd "/usr/local/bin/$app"
+	./smp-server init --yes -l -n $domain --no-password
+	./xftp-server init -l -p $data_dir -n $domain -q 20gb
+popd
+
+chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
+
+fingerprint="$(cat /etc/opt/simplex/fingerprint)"
+ynh_app_setting_set --key=fingerprint --value=$fingerprint
+
+xftp_fingerprint="$(cat /etc/opt/simplex-xftp/fingerprint)"
+ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
+
+tor="$(cat /var/lib/tor/simplex-smp/hostname)"
 
 #=================================================
 # ADD A CONFIGURATION
