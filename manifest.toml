@@ -81,6 +81,6 @@ ram.runtime = "50M"
    #obfs4.exposed = "Both"
 
    [resources.apt]
-   extras.tor.repo = "deb https://deb.torproject.org/torproject.org bullseye main"
+   extras.tor.repo = "deb https://deb.torproject.org/torproject.org bookworm main"
    extras.tor.key = "https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc"
    extras.tor.packages = "tor tor-geoipdb deb.torproject.org-keyring"
