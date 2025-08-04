@@ -36,26 +36,32 @@ pushd "/usr/local/bin/$app"
 	./xftp-server init -l -p $data_dir -n $domain -q 20gb
 popd
 
+chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
+
 fingerprint=$(cat /etc/opt/simplex/fingerprint)
 ynh_app_setting_set --key=fingerprint --value=$fingerprint
 
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
 
-chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression "Adding Tor configuration..."
+
+ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
+ynh_add_config --template="tor2" --destination="/etc/tor/instances/tor2/torrc"
+
+chmod 660  "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
+chown :debian-tor "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
+
+mkdir /var/lib/tor/simplex-smp/
+chown debian-tor:debian-tor /var/lib/tor/simplex-smp/ && chmod 700 /var/lib/tor/simplex-smp/
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
-
-ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
-
-chmod 660  /etc/tor/torrc
-chown :debian-tor /etc/tor/torrc
-
-mkdir /etc/tor/simplex-xftp/
-chown debian-tor:debian-tor /etc/tor/simplex-xftp/ && chmod 700 /etc/tor/simplex-xftp/
+ynh_script_progression "Adding a configuration for $app..."
 
 ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
 ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"

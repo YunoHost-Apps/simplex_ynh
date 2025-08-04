@@ -1,0 +1,4 @@
+# Log tor to systemd daemon
+Log notice syslog
+# Listen to local 9050 port for socks proxy
+SocksPort __PORT_SOCKS__
