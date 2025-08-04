@@ -31,9 +31,6 @@ chmod +x /usr/local/bin/$app/xftp-server
 # SPECIFIC SETUP
 #=================================================
 
-public_ip4="$(curl -s https://ip.yunohost.org)" || true
-ynh_app_setting_set --key=public_ip4 --value=$public_ip4
-
 pushd "/usr/local/bin/$app"
 	./smp-server init --yes -l -n $domain --password $password
 	./xftp-server init -l -p $data_dir -n $domain -q 20gb
@@ -45,8 +42,7 @@ ynh_app_setting_set --key=fingerprint --value=$fingerprint
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
 
-chown -R $app:$app "/etc/opt/simplex"
-chown -R $app:$app "/etc/opt/simplex-xftp"
+chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
 
 #=================================================
 # ADD A CONFIGURATION
