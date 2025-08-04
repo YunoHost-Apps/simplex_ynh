@@ -31,8 +31,8 @@ chmod +x /usr/local/bin/$app/smp-server /usr/local/bin/$app/xftp-server
 #=================================================
 ynh_script_progression "Adding Tor configuration..."
 
-ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
-ynh_add_config --template="tor2" --destination="/etc/tor/instances/tor2/torrc"
+ynh_config_add --template="torrc" --destination="/etc/tor/torrc"
+ynh_config_add --template="tor2" --destination="/etc/tor/instances/tor2/torrc"
 
 chmod 660  "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
 chown :debian-tor "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
