@@ -45,10 +45,13 @@ chown debian-tor:debian-tor /var/lib/tor/simplex-smp/ && chmod 700 /var/lib/tor/
 #=================================================
 ynh_script_progression "Configuring $app..."
 
-pushd "/usr/local/bin/$app"
-	./smp-server init --yes -l -n $domain --no-password
-	./xftp-server init -l -p $data_dir -n $domain -q 20gb
-popd
+#pushd "/usr/local/bin/$app"
+#	./smp-server init --yes -l -n $domain --no-password
+#	./xftp-server init -l -p $data_dir -n $domain -q 20gb
+#popd
+
+(/usr/local/bin/$app/smp-server init -y -l -n $domain --no-password)
+(/usr/local/bin/$app/xftp-server init -l -p $data_dir -n $domain -q 20gb)
 
 chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
 
