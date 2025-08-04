@@ -74,6 +74,7 @@ ram.runtime = "50M"
    main.exposed = "TCP"
    xftp.default = 5224
    xftp.exposed = "TCP"
+   socks.default = 9050
    #or.default = 9002
    #or.exposed = "Both"
    #obfs4.default = 9003
