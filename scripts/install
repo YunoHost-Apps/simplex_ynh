@@ -30,6 +30,7 @@ chmod +x /usr/local/bin/$app/xftp-server
 #=================================================
 # SPECIFIC SETUP
 #=================================================
+ynh_script_progression "Configuring $app..."
 
 pushd "/usr/local/bin/$app"
 	./smp-server init --yes -l -n $domain --password $password
