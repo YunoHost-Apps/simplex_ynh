@@ -10,11 +10,15 @@ ynh_script_progression "Stopping $app's systemd service..."
 
 ynh_systemctl --service=$app --action="stop" --log_path="systemd"
 ynh_systemctl --service=xftp --action="stop" --log_path="systemd"
+ynh_systemctl --service=tor --action="stop" --log_path="systemd"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
+
+# If storage_quota doesn't exist, create it
+ynh_app_setting_set_default --key=storage_quota --value="20gb"
 
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
@@ -40,6 +44,11 @@ ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp
 
 chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex-xftp/file-server.ini"
 
+ynh_add_config --template="torrc" --destination="/etc/tor/torrc"
+
+chmod 660  /etc/tor/torrc
+chown :debian-tor /etc/tor/torrc
+
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
@@ -52,6 +61,7 @@ ynh_config_add_systemd --service=xftp --template=../conf/xftp-systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" #--needs_exposed_ports="$port_or" --test_status="pgrep tor"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -60,6 +70,7 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service=$app --action="start" --log_path="systemd"
 ynh_systemctl --service=xftp --action="start" --log_path="systemd"
+ynh_systemctl --service=tor --action="restart" --log_path="systemd"
 
 ynh_systemctl --service=nginx --action=reload
 

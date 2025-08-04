@@ -26,6 +26,7 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_restore "/etc/opt/simplex"
 ynh_restore "/etc/opt/simplex-xftp"
+ynh_restore "/etc/tor/torrc"
 
 ynh_restore "/var/opt/simplex"
 ynh_restore "/var/opt/simplex-xftp"
@@ -40,6 +41,7 @@ systemctl enable xftp.service --quiet
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" #--needs_exposed_ports="$port_or" --test_status="pgrep tor"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -48,6 +50,7 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service=$app --action="start" --log_path="systemd"
 ynh_systemctl --service=xftp --action="start" --log_path="systemd"
+ynh_systemctl --service=tor --action="restart" --log_path="systemd"
 
 ynh_systemctl --service=nginx --action=reload
 

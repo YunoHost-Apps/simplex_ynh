@@ -32,6 +32,8 @@ ynh_backup "/var/opt/simplex"
 ynh_backup "/etc/opt/simplex-xftp"
 ynh_backup "/var/opt/simplex-xftp"
 
+ynh_backup "/etc/tor/torrc"
+
 #=================================================
 # END OF SCRIPT
 #=================================================

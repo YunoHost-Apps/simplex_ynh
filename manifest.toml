@@ -74,3 +74,13 @@ ram.runtime = "50M"
    main.exposed = "TCP"
    xftp.default = 5224
    xftp.exposed = "TCP"
+   socks.default = 9050
+   #or.default = 9002
+   #or.exposed = "Both"
+   #obfs4.default = 9003
+   #obfs4.exposed = "Both"
+
+   [resources.apt]
+   extras.tor.repo = "deb https://deb.torproject.org/torproject.org bookworm main"
+   extras.tor.key = "https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc"
+   extras.tor.packages = "tor deb.torproject.org-keyring"

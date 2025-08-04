@@ -24,31 +24,49 @@ mkdir -p /etc/opt/simplex-xftp /var/opt/simplex-xftp
 chown -R $app:$app "/etc/opt/simplex-xftp" "/etc/opt/simplex" "/var/opt/simplex-xftp" "/var/opt/simplex"
 chown -R $app:www-data "$install_dir"
 
-chmod +x /usr/local/bin/$app/smp-server
-chmod +x /usr/local/bin/$app/xftp-server
+chmod +x /usr/local/bin/$app/smp-server /usr/local/bin/$app/xftp-server
+
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression "Adding Tor configuration..."
+
+ynh_config_add --template="torrc" --destination="/etc/tor/torrc"
+ynh_config_add --template="tor2" --destination="/etc/tor/instances/tor2/torrc"
+
+chmod 660  "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
+chown :debian-tor "/etc/tor/torrc" "/etc/tor/instances/tor2/torrc"
+
+mkdir /var/lib/tor/simplex-smp/
+chown debian-tor:debian-tor /var/lib/tor/simplex-smp/ && chmod 700 /var/lib/tor/simplex-smp/
 
 #=================================================
 # SPECIFIC SETUP
 #=================================================
 ynh_script_progression "Configuring $app..."
 
-pushd "/usr/local/bin/$app"
-	./smp-server init --yes -l -n $domain --no-password
-	./xftp-server init -l -p $data_dir -n $domain -q 20gb
-popd
+#pushd "/usr/local/bin/$app"
+#	./smp-server init --yes -l -n $domain --no-password
+#	./xftp-server init -l -p $data_dir -n $domain -q 20gb
+#popd
 
-fingerprint=$(cat /etc/opt/simplex/fingerprint)
-ynh_app_setting_set --key=fingerprint --value=$fingerprint
-
-xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
+(/usr/local/bin/$app/smp-server init -y -l -n $domain --no-password)
+(/usr/local/bin/$app/xftp-server init -l -p $data_dir -n $domain -q 20gb)
 
 chown -R $app:$app "/etc/opt/simplex" "/etc/opt/simplex-xftp"
+
+fingerprint="$(cat /etc/opt/simplex/fingerprint)"
+ynh_app_setting_set --key=fingerprint --value=$fingerprint
+
+xftp_fingerprint="$(cat /etc/opt/simplex-xftp/fingerprint)"
+ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
+
+tor="$(cat /var/lib/tor/simplex-smp/hostname)"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration..."
+ynh_script_progression "Adding a configuration for $app..."
 
 ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
 ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
@@ -67,6 +85,7 @@ ynh_config_add_systemd --service=xftp --template=../conf/xftp-systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
+yunohost service add tor --description="Tor Relay" --log="/var/log/$app/$app.log" --test_status="pgrep tor" #--needs_exposed_ports="$port_or" 
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -75,6 +94,7 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service=$app --action="start" --log_path="systemd"
 ynh_systemctl --service="xftp" --action="start" --log_path="systemd"
+ynh_systemctl --service=tor --action="restart" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
