@@ -1,9 +1,10 @@
-# Enable log (otherwise, tor doesn't seemd to deploy onion address)
+# Enable log (otherwise, tor doesn't seem to deploy onion address)
 Log notice file /var/log/tor/notices.log
-# Enable single hop routing (2 options below are dependencies of third). Will reduce latency in exchange of anonimity (since tor runs alongside xftp-server and onion address will be displayed in clients, this is totally fine)
+# Enable single hop routing (2 options below are dependencies of the third) - It will reduce the latency at the cost of lower anonimity of the server - as SMP-server onion address is used in the clients together with public address, this is ok. If you deploy SMP-server with onion-only address, keep standard configuration.
 SOCKSPort 0
 HiddenServiceNonAnonymousMode 1
 HiddenServiceSingleHopMode 1
-# xftp-server hidden service host directory and port mappings
-HiddenServiceDir /etc/tor/simplex-xftp/
+# smp-server hidden service host directory and port mappings
+HiddenServiceDir /var/lib/tor/simplex-smp/
+HiddenServicePort __PORT__ localhost:__PORT__
 HiddenServicePort 443 localhost:443
