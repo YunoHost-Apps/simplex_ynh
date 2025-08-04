@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "5.8.0~ynh1"
+version = "6.4.1~ynh1"
 
 maintainers = []
 
@@ -18,12 +18,12 @@ cpe = "cpe:2.3:a:simplex:simplex_chat"
 fund = "https://opencollective.com/simplex-chat"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 12.0.9"
+helpers_version = "2.1"
 architectures = ["amd64", "arm64"]
 multi_instance = false
 
 ldap = "not_relevant"
-
 sso = "not_relevant"
 
 disk = "50M"
@@ -32,46 +32,52 @@ ram.runtime = "50M"
 
 [install]
 
+    [install.domain]
+    type = "domain"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
 [resources]
 
  [resources.sources]
-    [resources.sources.main]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_amd64"
-    amd64.sha256 = "8b5806a63ccbec373e8a4681cbb97113b0757a19b5f8a889dd9611c767b1a57c"
-    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/smp-server_arm64"
-    arm64.sha256 = "dcf246b4e065199fbd8eb41845eef4d93ba3bcf01eeddc833bb318a6c78db988"
-    in_subdir = false
-    extract   = false
-    rename    = "smp-server"
+   [resources.sources.main]
+   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/smp-server_amd64"
+   amd64.sha256 = "da7fc90473b339fa83f3ad61b257c83e4a233f6ce5d5688fd0272be2751c8d36"
+   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/smp-server_arm64"
+   arm64.sha256 = "c67d78fa3bc9c9e51e461990efdb2936ec0a4cedc3751a68d761df4255d1d004"
+   in_subdir = false
+   extract = false
+   rename = "smp-server"
 
-    [resources.sources.xftp]
-    amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_amd64"
-    amd64.sha256 = "d7550d5dc6b3ff3dfee145e39ab5da9429c6fde295d705d634e21c2e62b53142"
-    arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v5.8.0/xftp-server_arm64"
-    arm64.sha256 = "515bcdde8d46e07614168b926e61b1e17f039b8a2be29590cde1ff9caea5fa12"
-    in_subdir = false
-    extract   = false
-    rename    = "xftp-server"
+   [resources.sources.xftp]
+   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/xftp-server_amd64"
+   amd64.sha256 = "8f07975a9132dbc34b709491bb99fb805e10d6b0a9e309a831c78522ea25c7e0"
+   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/xftp-server_arm64"
+   arm64.sha256 = "955b12789aa2200f4ff17d31b30473b1da094f98a4319c815c343934edc8efd8"
+   in_subdir = false
+   extract = false
+   rename = "xftp-server"
+
+   [resources.system_user]
+
+   [resources.install_dir]
+
+   [resources.data_dir]
+
+   [resources.permissions]
+   main.url = "/"
 
    [resources.ports]
    main.default = 5223
    main.exposed = "TCP"
    xftp.default = 5224
    xftp.exposed = "TCP"
-
    #or.default = 9002
    #or.exposed = "Both"
    #obfs4.default = 9003
    #obfs4.exposed = "Both"
-
-   [resources.system_user]
-
-   [resources.install_dir]
-   dir = "/usr/local/bin/__APP__"
-
-   [resources.data_dir]
-
-   [resources.permissions]
 
    [resources.apt]
    extras.tor.repo = "deb https://deb.torproject.org/torproject.org bullseye main"
