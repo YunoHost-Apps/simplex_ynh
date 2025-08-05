@@ -10,6 +10,10 @@ source /usr/share/yunohost/helpers
 storage_quota="20gb"
 ynh_app_setting_set --key=storage_quota --value=$storage_quota
 
+if [ -z "$domain" ]; then
+	ynh_die "You need to define a domain for Simplex before upgrading. `yunohost app setting simplex domain -v <smp.domain.tld>`"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
