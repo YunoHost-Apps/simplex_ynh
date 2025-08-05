@@ -22,7 +22,7 @@ mkdir -p /etc/opt/simplex /var/opt/simplex
 mkdir -p /etc/opt/simplex-xftp /var/opt/simplex-xftp
 
 chown -R $app:$app "/etc/opt/simplex-xftp" "/etc/opt/simplex" "/var/opt/simplex-xftp" "/var/opt/simplex"
-chown -R $app:www-data "$install_dir"
+#chown -R $app:www-data "$install_dir"
 
 chmod +x /usr/local/bin/$app/smp-server
 chmod +x /usr/local/bin/$app/xftp-server

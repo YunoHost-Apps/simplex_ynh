@@ -35,7 +35,7 @@ ynh_setup_source --dest_dir="/usr/local/bin/$app"
 ynh_setup_source --dest_dir="/usr/local/bin/$app" --source_id="xftp"
 
 chmod +x "/usr/local/bin/$app/smp-server" "/usr/local/bin/$app/xftp-server"
-chown -R $app:www-data "$install_dir"
+#chown -R $app:www-data "$install_dir"
 
 #=================================================
 # ADD A CONFIGURATION
