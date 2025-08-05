@@ -19,6 +19,10 @@ ynh_script_progression "Ensuring downward compatibility..."
 xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
 ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
 
+if [ -z "$domain" ]; then
+	ynh_die "You need to define a domain for Simplex before upgrading. `yunohost app setting simplex domain -v <smp.domain.tld>`"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
