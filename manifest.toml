@@ -5,7 +5,7 @@ name = "SimpleX"
 description.en = "Messaging platform operating without user identifiers"
 description.fr = "Plate-forme de messagerie fonctionnant sans identifiants d'utilisateurs"
 
-version = "6.4.1~ynh1"
+version = "6.4.4~ynh1"
 
 maintainers = []
 
@@ -43,19 +43,19 @@ ram.runtime = "50M"
 
  [resources.sources]
    [resources.sources.main]
-   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/smp-server_amd64"
-   amd64.sha256 = "da7fc90473b339fa83f3ad61b257c83e4a233f6ce5d5688fd0272be2751c8d36"
-   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/smp-server_arm64"
-   arm64.sha256 = "c67d78fa3bc9c9e51e461990efdb2936ec0a4cedc3751a68d761df4255d1d004"
+   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.4/smp-server_amd64"
+   amd64.sha256 = "23530e843cb792b5e5eccf2fc3fc714fca51ea2128f6e0b9d4624ffff44cc553"
+   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.4/smp-server_arm64"
+   arm64.sha256 = "a5c5091b823e828058e9c91477b7f1400b281e4dd789b9efd2aaafeeb97315f4"
    in_subdir = false
    extract = false
    rename = "smp-server"
 
    [resources.sources.xftp]
-   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/xftp-server_amd64"
-   amd64.sha256 = "8f07975a9132dbc34b709491bb99fb805e10d6b0a9e309a831c78522ea25c7e0"
-   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.1/xftp-server_arm64"
-   arm64.sha256 = "955b12789aa2200f4ff17d31b30473b1da094f98a4319c815c343934edc8efd8"
+   amd64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.4/xftp-server_amd64"
+   amd64.sha256 = "4e46962db87589fdde70ad5553786875db9a1d8136f539fc2f45ee2ffde788a7"
+   arm64.url = "https://github.com/YunoHost-Apps/simplex_ynh/releases/download/v6.4.4/xftp-server_arm64"
+   arm64.sha256 = "9e7daaa8ccdf64421ae435140b667bc8f2025829225c8ce426402bc089b77c40"
    in_subdir = false
    extract = false
    rename = "xftp-server"
