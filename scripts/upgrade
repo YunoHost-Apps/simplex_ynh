@@ -13,58 +13,48 @@ ynh_systemctl --service=xftp --action="stop" --log_path="systemd"
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-#ynh_script_progression "Ensuring downward compatibility..."
+ynh_script_progression "Ensuring downward compatibility..."
 
-# ynh_app_setting_set_default --key=storage_quota --value="20gb"
+fingerprint=$(cat /etc/opt/simplex/fingerprint)
+ynh_app_setting_set --key=fingerprint --value=$fingerprint
+
+xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
+ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
+
+if [ -z "${domain:-}" ]; then
+	ynh_die "You need to define a domain for Simplex before upgrading. `yunohost app setting simplex domain -v <smp.domain.tld>`"
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
-ynh_setup_source --dest_dir="$install_dir" --source_id="xftp"
+ynh_setup_source --dest_dir="/usr/local/bin/$app"
+ynh_setup_source --dest_dir="/usr/local/bin/$app" --source_id="xftp"
 
-chmod +x $install_dir/smp-server
-chmod +x $install_dir/xftp-server
-
-#=================================================
-# SPECIFIC SETUP
-#=================================================
-
-if [ ! -d /etc/opt/simplex-xftp ]; then
-
-	mkdir -p "/etc/opt/simplex-xftp"
-
-	public_ip4="$(curl -s https://ip.yunohost.org)" || true
-	ynh_app_setting_set --key=public_ip4 --value=$public_ip4
-
-	pushd "$install_dir"
-		./xftp-server init --ip $public_ip4 --quota '20gb' --store-log --path $data_dir
-	popd
-
-	xftp_fingerprint=$(cat /etc/opt/simplex-xftp/fingerprint)
-	ynh_app_setting_set --key=xftp_fingerprint --value=$xftp_fingerprint
-
-	ynh_replace --match="port: 443" --replace="port: $port_xftp" --file="/etc/opt/simplex-xftp/file-server.ini"
-
-	chown -R $app:$app /etc/opt/simplex-xftp /var/opt/simplex-xftp
-fi
+chmod +x "/usr/local/bin/$app/smp-server" "/usr/local/bin/$app/xftp-server"
+#chown -R $app:www-data "$install_dir"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression "Adding $app's configuration..."
+ynh_script_progression "Adding $app's configuration..."
 
-#ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+ynh_config_add --template="smp-server.ini" --destination="/etc/opt/simplex/smp-server.ini"
+ynh_config_add --template="file-server.ini" --destination="/etc/opt/simplex-xftp/file-server.ini"
+
+chown $app:$app "/etc/opt/simplex/smp-server.ini" "/etc/opt/simplex-xftp/file-server.ini"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
 
+ynh_config_add_nginx
+
 ynh_config_add_systemd
-ynh_config_add_systemd --service=xftp --template=../conf/xftp.systemd.service
+ynh_config_add_systemd --service=xftp --template=../conf/xftp-systemd.service
 
 yunohost service add $app --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port"
 yunohost service add xftp --description="Messaging platform" --log="/var/log/$app/$app.log" --needs_exposed_ports="$port_xftp"
@@ -76,6 +66,8 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service=$app --action="start" --log_path="systemd"
 ynh_systemctl --service=xftp --action="start" --log_path="systemd"
+
+ynh_systemctl --service=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT

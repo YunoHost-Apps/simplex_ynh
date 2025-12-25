@@ -32,6 +32,13 @@ ram.runtime = "50M"
 
 [install]
 
+    [install.domain]
+    type = "domain"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
 [resources]
 
  [resources.sources]
@@ -54,17 +61,18 @@ ram.runtime = "50M"
    extract = false
    rename = "xftp-server"
 
-    [resources.ports]
-    main.default = 5223
-    main.exposed = "TCP"
-    xftp.default = 5224
-    xftp.exposed = "TCP"
+   [resources.system_user]
 
-    [resources.system_user]
+   [resources.install_dir]
+   group = "www-data:r-x"
 
-    [resources.install_dir]
-    dir = "/usr/local/bin/__APP__"
+   [resources.data_dir]
 
-    [resources.data_dir]
+   [resources.permissions]
+   main.url = "/"
 
-    [resources.permissions]
+   [resources.ports]
+   main.default = 5223
+   main.exposed = "TCP"
+   xftp.default = 5224
+   xftp.exposed = "TCP"
